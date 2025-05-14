@@ -22,11 +22,11 @@ int main(){
     char admin_name[200],admin_password[200];
     printf("Enter admin name and password: ");
     scanf("%s %s",admin_name,admin_password);
-    admin.admin_id = 2;
+    admin.admin_id = 2;// set this
     strcpy(admin.admin_name,admin_name);
     strcpy(admin.admin_password,admin_password);
     admin.present = PRESENT;
-    int key = 1;
+    int key = admin.admin_id;
     write(fd,&key,sizeof(int));
     write(fd,&admin,sizeof(Admin));
     lseek(fd,0,SEEK_SET);
