@@ -28,18 +28,33 @@ The Academia Portal is a comprehensive client-server application designed to str
 ## Source Code with Purpose of Each Module
 - **server.c**:  
   The main server program that listens for incoming connections, authenticates users, and delegates client requests to appropriate handler functions.
+  ![Server](./images/server.png)
   
 - **client.c**:  
   The client-side application that connects to the server, presents user interfaces based on role, and communicates user actions to the server.
+  ![Client](./images/client.png)
   
 - **server_helper.c** and **server_helper.h**:  
   Helper functions for the server to process various requests like adding courses, managing enrollments, and handling user authentication.
+  ![Server-Helper1](./images/server_helper1.png)
+
+  ![Server-Helper2](./images/server_helper2.png)
   
 - **data_access.c** and **data_access.h**:  
   Database interaction layer that manages reading from and writing to data files with proper locking mechanisms.
+
+  ![Data Access](./images/data_access.png)
   
 - **structures.h**:  
   Contains definitions of all data structures used throughout the application, including Student, Faculty, Admin, Course, and Enrollment records.
+
+  ![Structure](./images/structures1.png)
+
+  ![Structure](./images/structures2.png)
+
+  ![Structure](./images/structures3.png)
+
+  ![Structure](./images/structures4.png)
 
 ## Key Features
 - **Role-Based Access Control**: Different interfaces and permissions for Administrators, Faculty members, and Students
