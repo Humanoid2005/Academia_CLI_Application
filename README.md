@@ -98,17 +98,37 @@ make run-client
 - Activate or deactivate Student accounts
 - Update Student/Faculty details
 
+![Admin](./images/admin1.jpeg)
+
+![Admin](./images/admin2.jpeg)
+
+![Admin](./images/admin3.jpeg)
+
+![Admin](./images/admin4.jpeg)
+
 ### Faculty Features
 - Add new courses with seat limits
 - Remove offered courses
 - View student enrollments in courses
 - Change password
 
+  ![Faculty](./images/faculty1.jpeg)
+
+  ![Faculty](./images/faculty2.jpeg)
+
+  ![Faculty](./images/faculty3.jpeg)
+
+  ![Faculty](./images/faculty4.jpeg)
+
 ### Student Features
 - Enroll in available courses
 - Unenroll from already enrolled courses
 - View current course enrollments
 - Change password
+
+  ![Student](./images/student1.jpeg)
+
+  ![Student](./images/student1.jpeg)
 
 ## System Architecture
 The system follows a client-server architecture where:
