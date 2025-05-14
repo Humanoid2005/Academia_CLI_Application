@@ -3,6 +3,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/*
+Use this file to add an admin entity to the admin file. Initially one admin entity has been added to the admin.dat file with id 1 and password changeme
+*/
+
 #define PRESENT 101
 
 typedef struct {
@@ -18,7 +22,7 @@ int main(){
     char admin_name[200],admin_password[200];
     printf("Enter admin name and password: ");
     scanf("%s %s",admin_name,admin_password);
-    admin.admin_id = 1;
+    admin.admin_id = 2;
     strcpy(admin.admin_name,admin_name);
     strcpy(admin.admin_password,admin_password);
     admin.present = PRESENT;
