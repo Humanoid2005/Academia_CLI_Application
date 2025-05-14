@@ -49,20 +49,29 @@ The Academia Portal is a comprehensive client-server application designed to str
 - **Data Persistence**: All information is stored securely in files with appropriate locking mechanisms
 
 ## Installation and Setup
-```bash
+
 # Clone the repository
+```bash
 git clone <repository-url>
+```
 
 # Navigate to the project directory
-cd academia-portal
+```bash
+cd academia-port
+```
 
 # Compile the application
+```bash
 make all
+```
 
 # Start the server
+```bash
 make run-server
+```
 
 # In a separate terminal, start a client
+```bash
 make run-client
 ```
 
