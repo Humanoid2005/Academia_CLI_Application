@@ -27,19 +27,21 @@ The Academia Portal is a comprehensive client-server application designed to str
 
 ## Source Code with Purpose of Each Module
 
-.
-├── bin                    Contains all executed compiled files
-├── classes                Contains all helper function and structure files
-│   ├── data               Has all data files storing admin, student, faculty, course, enrollments data
-│   ├── data_access.c      File DB access functions
-│   ├── data_access.h
-│   ├── server_helper.c    Server helper functions
-│   ├── server_helper.h
-│   └── structures.h       Has all object structures and request/response structs for socket communication
-├── client.c               Client code
-├── Makefile               Easily automate compile and running the client/server codes
-└── server.c               Server code
-
+```bash
+Academia_CLI_Application/
+├── bin/                   # contains all executed compiled files
+├── classes/               # contains all helper function and structure files
+│   ├── data/              # has all data files storing admin, student, faculty, course, enrollments data
+│   ├── data_access.c      # file DB access functions
+│   ├── data_access.h      
+│   ├── server_helper.c    # server helper functions
+│   ├── server_helper.h      
+│   ├── structures.h       # has all object structures and request/response structs for socket communication
+├── client.c               # client code
+├── Makefile               # easily automate compile and running the client/server codes
+├── server.c               # server code
+├── README.md              # project documentation (You are here!)
+```
 
 - **server.c**:  
   The main server program that listens for incoming connections, authenticates users, and delegates client requests to appropriate handler functions.
