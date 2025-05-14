@@ -147,6 +147,13 @@ make run-client
 
   ![Student](./images/student1.jpeg)
 
+### Server Logging
+
+  ![ServerLog](./images/server_log1.jpeg)
+
+  ![ServerLog](./images/server_log2.jpeg)
+
+
 ## System Architecture
 The system follows a client-server architecture where:
 1. The server maintains the database and serves multiple clients concurrently
