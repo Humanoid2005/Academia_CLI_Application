@@ -1,8 +1,8 @@
 # EGC301P Operating Systems Lab Mini Project
 # Academia Portal - Course Registration System
 
-### Name: Sriram Srikanth
-### Roll Number: IMT2023115
+## Name: Sriram Srikanth
+## Roll Number: IMT2023115
 
 ## Introduction
 The Academia Portal is a comprehensive client-server application designed to streamline course registration and academic management in educational institutions. This system facilitates communication between administrators, faculty members, and students through a secure and efficient interface. Built with C programming and socket programming, the application ensures reliable data management with file-based storage and implements concurrent client handling. The system incorporates crucial OS concepts including process management, file locking mechanisms, semaphores, multithreading, and Inter-Process Communication to maintain data integrity during concurrent access.
