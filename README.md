@@ -52,12 +52,12 @@ The Academia Portal is a comprehensive client-server application designed to str
 
 Clone the repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/Humanoid2005/Academia_CLI_Application.git
 ```
 
 Navigate to the project directory
 ```bash
-cd academia-port
+cd Academia_CLI_Application
 ```
 
 Compile the application
