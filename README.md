@@ -136,7 +136,6 @@ make run-client
 
   ![Faculty](./images/faculty3.jpeg)
 
-  ![Faculty](./images/faculty4.jpeg)
 
 ### Student Features
 - Enroll in available courses
