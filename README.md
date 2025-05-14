@@ -50,27 +50,27 @@ The Academia Portal is a comprehensive client-server application designed to str
 
 ## Installation and Setup
 
-# Clone the repository
+Clone the repository
 ```bash
 git clone <repository-url>
 ```
 
-# Navigate to the project directory
+Navigate to the project directory
 ```bash
 cd academia-port
 ```
 
-# Compile the application
+Compile the application
 ```bash
 make all
 ```
 
-# Start the server
+Start the server
 ```bash
 make run-server
 ```
 
-# In a separate terminal, start a client
+In a separate terminal, start a client
 ```bash
 make run-client
 ```
