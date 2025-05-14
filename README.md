@@ -1,3 +1,4 @@
+# EGC301P Operating Systems Lab Mini Project
 # Academia Portal - Course Registration System
 
 ### Name: Sriram Srikanth
