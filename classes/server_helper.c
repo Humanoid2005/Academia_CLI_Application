@@ -48,7 +48,7 @@ int get_course(int c_id,Course* course,sem_t * course_sem){
 int get_enrolled_courses(int s_id,Enrollment enrollments[],sem_t * enrollment_sem){
     void * records = malloc(sizeof(Enrollment)*MAX_LEN);
     int getr = getMutipleRecords(s_id,MULTI_STUDENT_COURSE,records,ENROLLMENT_FILE,enrollment_sem);
-    convertCoursePtrToArray(enrollments,(Enrollment*)records);
+    convertEnrollmentsPtrToArray(enrollments,(Enrollment*)records);
     free(records);
     return getr;
 }
@@ -68,20 +68,20 @@ int get_students_enrolled(int c_id,Enrollment enrollments[],sem_t * enrollment_s
     return getr;
 }
 
-int add_student(char student_name[],sem_t * student_sem){
+int add_student(char student_name[],float cgpa,sem_t * student_sem){
     for(int i=0;i<MAX_LEN;i++){
         Student student;
         int getr = get_student(i,&student,student_sem);
-        if(getr=SUCCESS && strcmp(student.student_name,student_name)==0){
+        if(getr==SUCCESS && strcmp(student.student_name,student_name)==0){
             return ALREADY_ADDED;
         }
     }
     int key = getNumberOfRecords(sizeof(Student),STUDENT_FILE,student_sem)+1;
     Student student;
     student.student_id = key;
+    student.cgpa = cgpa;
     strcpy(student.student_name,student_name);
     strcpy(student.student_password,"changeme");
-    student.cgpa = 0.0;
     student.present = PRESENT;
 
     int addr = addRecord(key,&student,sizeof(Student),STUDENT_FILE,student_sem);
