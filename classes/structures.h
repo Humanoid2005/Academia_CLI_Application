@@ -19,6 +19,8 @@
 #define PRESENT 101
 #define ALREADY_ADDED 109
 #define MAX_LEN 100
+#define SERVER_PORT 8000
+#define CONNECTIONS_HANDLED 5
 
 typedef struct {
     char admin_name[200];
