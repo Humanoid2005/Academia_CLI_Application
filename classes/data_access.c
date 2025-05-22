@@ -14,6 +14,7 @@ int getRecord(int id,void* rec,int rec_size,char filename[],sem_t *sem){
     lock.l_len = 0;
     int fd;
 
+
     fd = open(filename, O_RDONLY);
     if (fd == -1) {
         return FILE_ERROR;
@@ -63,12 +64,12 @@ int getNumberOfRecords(int rec_size,char filename[],sem_t *sem){
 
     fd = open(filename, O_RDONLY);
     if (fd == -1) {
-        return FILE_ERROR;
+        return 0;
     }
 
     if (fcntl(fd, F_SETLKW, &lock) == -1) {
         close(fd);
-        return FILE_ERROR;
+        return 0;
     }
 
     sem_wait(sem);
@@ -111,7 +112,8 @@ int addRecord(int id,void * rec,int rec_size,char filename[],sem_t *sem){
     sem_wait(sem);
 
     lseek(fd,0,SEEK_END);
-    write(fd,&id,sizeof(int));
+    int record_key = id;
+    write(fd,&record_key,sizeof(int));
     write(fd,rec,rec_size);
 
     lock.l_type = F_UNLCK;
