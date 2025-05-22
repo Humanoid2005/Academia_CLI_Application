@@ -8,8 +8,6 @@
 #include <string.h>
 #include <pthread.h>
 
-#define SERVER_PORT 8080
-
 User current_user;
 
 int send_all(int sd, const void *buf, int len) {
@@ -173,11 +171,16 @@ int main() {
             case 1: // Add Student
                 {
                     char student_name[100];
-                    printf("Enter student name: ");
+                    float cgpa;
+                    char roll_number[20];
+                    printf("Enter student's name: ");
                     scanf("%s", student_name);
+                    printf("Enter student's cgpa: ");
+                    scanf("%f", &cgpa);
                     
                     strcpy(request.info.type, "add_student");
                     strcpy(request.data.student.student_name, student_name);
+                    request.data.student.cgpa = cgpa;
                     request.user = current_user;
                     
                     send_request(sd, request);
