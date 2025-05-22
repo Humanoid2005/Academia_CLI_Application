@@ -18,8 +18,6 @@
 #include "./classes/data_access.h"
 #include "./classes/server_helper.h"
 
-#define PORT 8080
-
 sem_t *student_sem;
 sem_t *faculty_sem;
 sem_t *course_sem;
@@ -107,7 +105,7 @@ void * handle_client(void * nsd){
             else{
                 char student_name[100];
                 strcpy(student_name,request.data.student.student_name);
-                int addr = add_student(student_name,student_sem);
+                int addr = add_student(student_name,request.data.student.cgpa,student_sem);
                 if(addr==SUCCESS){
                     response.status = 201;
                 }
@@ -273,15 +271,17 @@ void * handle_client(void * nsd){
                 Faculty faculty;
                 int getr = get_faculty(request.info.id,&faculty,faculty_sem);
                 if(getr!=SUCCESS){
-                    return KEY_NOT_FOUND;
-                }
-                strcpy(faculty.faculty_password,request.info.password);
-                int updater = update_faculty(request.info.id,faculty,faculty_sem);
-                if(updater==SUCCESS){
-                    response.status = 201;
+                    response.status = 400;
                 }
                 else{
-                    response.status = 400;
+                    strcpy(faculty.faculty_password,request.info.password);
+                    int updater = update_faculty(request.info.id,faculty,faculty_sem);
+                    if(updater==SUCCESS){
+                        response.status = 201;
+                    }
+                    else{
+                        response.status = 400;
+                    }
                 }
             }
         }
@@ -312,7 +312,7 @@ void * handle_client(void * nsd){
                 else if(getr==ALREADY_ADDED){
                     response.status = 403;
                 }
-                else if(course.number_of_seats==get_students_enrolled(course.course_id,request.data.students,enrollment_sem)){
+                else if(course.number_of_seats==get_students_enrolled(course.course_id,request.data.enrollments,enrollment_sem)){
                     response.status = 400;
                 }
                 else {
@@ -487,19 +487,19 @@ int main(){
     int nsd;
     server.sin_addr.s_addr = inet_addr("127.0.0.1");
     server.sin_family = AF_INET;
-    server.sin_port = htons(PORT);
+    server.sin_port = htons(SERVER_PORT);
 
     if(bind(sd, (struct sockaddr *)&server, sizeof(server)) < 0) {
         perror("Bind error");
         exit(1);
     }
 
-    if(listen(sd, 5) < 0) {
+    if(listen(sd, CONNECTIONS_HANDLED) < 0) {
         perror("Listen error");
         exit(1);
     }
 
-    printf("Server listening on port %d...\n",PORT);
+    printf("Server listening on port %d...\n",SERVER_PORT);
 
     while(1){
         int c_size = sizeof(client);
